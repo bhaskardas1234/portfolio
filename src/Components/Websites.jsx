@@ -2,6 +2,9 @@ import React from "react";
 import classes from "./Websites.module.css";
 import profilePic from "../assets/pfimg4.jpeg"; // Replace with your image
 import { FaGithub, FaEnvelope, FaFilePdf } from "react-icons/fa";
+import todoimg from "../assets/to-do.jpeg";
+import chatappimg from "../assets/real-time-chat-application.jpeg";
+import videoApp from "../assets/video-app.jpeg";
 
 const Websites = () => {
   return (
@@ -22,8 +25,6 @@ const Websites = () => {
           <a href="mailto:your.email@gmail.com">
           <FaEnvelope /> Gmail
           </a>
-          
-          
         </div>
       </nav>
 
@@ -73,31 +74,38 @@ const Websites = () => {
         <div className={classes.projectCards}>
           {[
             {
-              title: "Project 1",
-              image: "./assets/project1.jpg",
-              link: "https://yourproject1.com",
+              title: "To-Do App",
+              image: todoimg,
+              link: "#",
+              comingSoon: true,
             },
             {
-              title: "Project 2",
-              image: "./assets/project2.jpg",
+              title: "Real-Time Chat App",
+              image: chatappimg,
               link: "https://yourproject2.com",
+              comingSoon: true,
             },
             {
-              title: "Project 3",
-              image: "./assets/project3.jpg",
-              link: "https://yourproject3.com",
+              title: "Video Streaming App",
+              image: videoApp,
+              link: "#",
+              comingSoon: true,
             },
           ].map((project, index) => (
             <div key={index} className={classes.projectCard}>
-              {/* <img
+              <img
                 src={project.image}
                 alt={project.title}
                 className={classes.projectImage}
-              /> */}
-              <h3>{"Coming Soon"}</h3>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                View Project
-              </a>
+              />
+              <h3>{project.title}</h3>
+              {project.comingSoon ? (
+                <p>Coming Soon</p>
+              ) : (
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  View Project
+                </a>
+              )}
             </div>
           ))}
         </div>
